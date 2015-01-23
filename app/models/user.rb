@@ -16,4 +16,14 @@ class User < ActiveRecord::Base
     login = conditions.delete(:login)
     where(["username = :value OR email = :value OR phonenumber = :value",{value: login.downcase}]).first
   end
+
+  def after_database_authentication
+    logger.debug "hola!!!!!!!!!"
+  end
+  Warden::Manager.after_authentication do |user,auth,opts|
+    logger.debug "hola!!!!!!!!!"
+    #auth.env['rack.session']
+    #auth.raw_session
+    #auth.env['rack.request.cookie_string']
+  end
 end

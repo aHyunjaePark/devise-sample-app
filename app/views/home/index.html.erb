@@ -1,5 +1,6 @@
 <h1>Hello world <%= current_user.email %></h1>
 <p>Find me in app/views/home/index.html.erb</p>
+<%= "asdfasf" + session[:hello].inspect %>
 <%= current_user.email %>
 <%= link_to 'logout', destroy_user_session_path, method: :delete %>
 <%= link_to 'edit my profile', edit_user_registration_path %>
