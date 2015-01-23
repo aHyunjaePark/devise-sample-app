@@ -7,7 +7,8 @@ class User < ActiveRecord::Base
          :recoverable,
          :rememberable,
          :trackable,
-         :validatable
+         :validatable,
+         :confirmable
   validates :username, presence: true, uniqueness: {case_sensitive: false}
 
   def self.find_for_database_authentication(warden_conditions)
